@@ -1,0 +1,37 @@
+@import '@radix-ui/colors/blackA.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css';
+
+/* reset */
+button {
+  all: unset;
+}
+
+/* .PopoverTrigger {
+  @apply inline-flex items-center justify-center rounded-md px-4 font-medium text-base font-semibold h-9 bg-white shadow-sm;
+  box-shadow: 0 2px 10px var(--blackA7);
+  color: var(--violet11);
+  background-color: white !important;
+}
+.PopoverTrigger:hover {
+  background-color: var(--mauve3);
+}
+.PopoverTrigger:focus {
+  box-shadow: 0 0 0 2px black;
+}
+
+.PopoverContent {
+  @apply rounded-md p-5 text-base leading-5 bg-white shadow-xl;
+  width: 260px;
+  color: var(--violet11);
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+}
+.PopoverContent:focus {
+  outline: none;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px,
+    0 0 0 2px var(--violet7);
+}
+
+.PopoverArrow {
+  @apply fill-white;
+} */
