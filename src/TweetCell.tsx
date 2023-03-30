@@ -6,20 +6,30 @@ import { Cross2Icon } from '@radix-ui/react-icons';
 type TweetCellProps = {
   open: boolean
   num: number
-  text1: string
-  text2: string
+  cell_v : string
   borderStyling: string[]
   title: string
   description: string
 }
+interface CellVariants {
+  [key: string]: string[];
+}
 
-export default function TweetCell({ open, num, text1, text2, borderStyling, title, description }: TweetCellProps) {
+export default function TweetCell({ open, num, cell_v, borderStyling, title, description }: TweetCellProps) {
   const [peak, setPeak] = React.useState(false);
   const handleClick = () => {
     setPeak(true);
   };
+  const cellVariants: CellVariants = {
+    'top_l': ['rounded-tl-xl', 'rounded-l-full'],
+    'top_m': ['rounded-none', 'rounded-none'],
+    'top_r': ['rounded-tr-xl', 'rounded-r-full'],
+    'bot_l': ['rounded-bl-xl', 'rounded-none'],
+    'bot_m': ['rounded-none', 'rounded-none'],
+    'bot_r': ['rounded-br-xl', 'rounded-none'],
+  }
   return (
-    <div onMouseEnter={handleClick} className={`${borderStyling.join(' ')} flex w-full justify-center p-2 ${open ? `rounded-${text1}` : `rounded-${text2}`} col-span-1 hover:bg-l-blue border-l-blue border text-center w-full`}
+    <div onMouseEnter={handleClick} className={`${borderStyling.join(' ')} flex w-full justify-center p-2 ${open ? `${cellVariants[cell_v][0]}` : `${cellVariants[cell_v][1]}`} col-span-1 hover:bg-l-blue border-l-blue border text-center w-full`}
     >
       <Popover.Root open={peak} onOpenChange={setPeak}>
         <Popover.Trigger className='w-full h-full'>
@@ -33,7 +43,7 @@ export default function TweetCell({ open, num, text1, text2, borderStyling, titl
             <div className="flex flex-col gap-2.5">
               <p className="text-h-blue text-[15px] leading-[19px] font-medium mb-2.5">{title}</p>
               <div className="flex gap-5 items-center">
-                <label className="text-[13px] text-h-blue">
+                <label className="text-[13px] text-h-blue ">
                   {description}
                 </label>
               </div>
