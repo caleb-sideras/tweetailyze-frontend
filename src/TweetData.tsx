@@ -10,8 +10,8 @@ export default function TweetData(props: TweetDataProps) {
     const { pos, neg, neu, top, com } = props
     const [open, setOpen] = React.useState(false);
     return (
-        <div className='-mt-4'>
-            <Collapsible.Root className="w-[300px]" open={open} onOpenChange={setOpen}>
+        <div className='-mt-4 w-full'>
+            <Collapsible.Root open={open} onOpenChange={setOpen}>
                 <div className=' flex items-center justify-end'>
                     <Collapsible.Trigger asChild>
                         <button className="
@@ -24,7 +24,7 @@ export default function TweetData(props: TweetDataProps) {
                         </button>
                     </Collapsible.Trigger>
                 </div>
-                <div className={`group my-4 text-t-white bg-d-grey cursor-pointer grid grid-cols-3 ${open ? 'rounded-xl' : 'rounded-full'}`} >
+                <div className={`group my-4 text-t-white bg-b-blue cursor-pointer grid grid-cols-3 ${open ? 'rounded-xl' : 'rounded-full'}`} >
                     <TweetCell open={open} num={pos} cell_v={'top_l'} borderStyling={['border-r-0']} title={'Positive Sentiment'} description={'Scale from 0-1 of tweet positivity'}/>
                     <TweetCell open={open} num={neg} cell_v={'top_m'} borderStyling={['']} title={'Negative Sentiment'} description={'Scale from 0-1 of tweet negativity'}/>
                     <TweetCell open={open} num={neu} cell_v={'top_r'} borderStyling={['border-l-0']} title={'Neutral Sentiment'} description={'Scale from 0-1 of tweet neutrality'}/>
