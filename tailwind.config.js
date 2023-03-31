@@ -20,7 +20,8 @@ export default {
         'd-blue' : '#004a77',
         'l-blue' : '#7fcfff',
         't-white': '#e3e3e3',
-        'h-blue': '#c2e7ff'
+        'h-blue': '#c2e7ff',
+        't-grey': '#8e918f'
 
       },
     },

@@ -2,18 +2,8 @@ import React from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import './demo.css';
 import { Cross2Icon } from '@radix-ui/react-icons';
+import { TweetCellProps,CellVariants } from './interfaces';
 
-type TweetCellProps = {
-  open: boolean
-  num: number
-  cell_v : string
-  borderStyling: string[]
-  title: string
-  description: string
-}
-interface CellVariants {
-  [key: string]: string[];
-}
 
 export default function TweetCell({ open, num, cell_v, borderStyling, title, description }: TweetCellProps) {
   const [peak, setPeak] = React.useState(false);
