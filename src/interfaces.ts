@@ -1,13 +1,9 @@
 export interface TweetDataProps {
-  pos: number
-  neg: number
-  neu: number
-  top: number
-  com: number
-}
-
-export interface TweetProps extends TweetDataProps {
-  tweetId: string
+  neg: number;
+  neu: number;
+  pos: number;
+  compound: number;
+  topic_weight: number;
 }
 
 export interface TweetCellProps {
@@ -23,19 +19,24 @@ export interface CellVariants {
   [key: string]: string[];
 }
 
-export type TweetCluster = {
-  tweetId: string;
-  neg: number;
-  neu: number;
-  pos: number;
-  com: number;
-  top: number;
+export interface TweetCluster extends TweetDataProps{
+  tweet_id: string;
 };
+
 export type ClusterProps = {
-  cluster: TweetCluster[];
+  topic: string
+  key_words: string[]
+  tweets: TweetCluster[];
 };
 
 export enum SortDirection {
   Ascending = 'asc',
   Descending = 'desc',
+}
+
+export type ProfileProps = {
+  id: string
+  name: string
+  username: string
+
 }

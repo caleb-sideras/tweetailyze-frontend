@@ -53,8 +53,8 @@ export default function Sort({handleSort }: SortProps) {
                             <SelectItem value="pos">Positive</SelectItem>
                             <SelectItem value="neg">Negative</SelectItem>
                             <SelectItem value="neu">Neutral</SelectItem>
-                            <SelectItem value="com">Compound</SelectItem>
-                            <SelectItem value="top">Topic Weight</SelectItem>
+                            <SelectItem value="compound">Compound</SelectItem>
+                            <SelectItem value="topic_weight">Topic Weight</SelectItem>
                         </Select.Group>
                     </Select.Viewport>
                     <Select.ScrollDownButton className="flex items-center justify-center h-[25px] bg-white text-violet11 cursor-default">

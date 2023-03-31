@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Popover from '@radix-ui/react-popover';
-import './demo.css';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { TweetCellProps,CellVariants } from './interfaces';
 

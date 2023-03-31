@@ -1,51 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cluster from './Cluster'
-import { TweetCluster } from './interfaces'
+import Profile from './Profile'
+import Search from './Search'
+import { ClusterProps, ProfileProps, TweetCluster } from './interfaces'
 
 type Props = {}
-const cluster: TweetCluster[] = [
-  {
-    "tweetId": "1619810123358285824",
-    "neg": 0,
-    "neu": 1,
-    "pos": 0,
-    "com": 0,
-    "top": 0.01208955708907979
-  },
-  {
-    "tweetId": "1640935697346338817",
-    "neg": 1,
-    "neu": 1,
-    "pos": 0,
-    "com": 0,
-    "top": 0.9
-  },
-  {
-    "tweetId": "1641412789502636032",
-    "neg": 0,
-    "neu": 0,
-    "pos": 1,
-    "com": 1,
-    "top": 0.05
-  }
-]
 
 export default function App({ }: Props) {
-  
+  const [data, setData] = useState<string | null>(null);
+  const [clusters, setClusters] = useState<ClusterProps[] | null>(null);
+  const [profile, setProfile] = useState<ProfileProps | null>(null);
+
+  const handleDataChange = (newData: string) => {
+    let values: any;
+    try {
+      values = JSON.parse(newData);
+      console.log(values)
+    } catch (error) {
+      console.error(error);
+    }
+    setClusters(values['clusters'])
+    setProfile(values['user'])
+  };
+
   return (
-    <div className='w-full h-full justify-center items-center flex flex-row'>
-      <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-auto-fit'> 
-        <div style={{ gridTemplateColumns: "minmax(350px, 1fr)"}}>
+    <div className='w-full h-full justify-center items-center flex flex-col gap-4 px-4'>
+      <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-auto-fit'>
+        <div className='col-span-full'>
+          <Search data={data} onDataChange={handleDataChange} />
+        </div>
+        <div className='col-span-full'>
+          {profile && <Profile {...profile} />}
+        </div>
+        {clusters && clusters.map((cluster: ClusterProps) => (
+          <div key={cluster.topic} style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
+            <Cluster {...cluster} />
+          </div>
+        ))}
+        {/* <div style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
           <Cluster cluster={[...cluster]} />
         </div>
-        <div style={{ gridTemplateColumns: "minmax(350px, 1fr)" }}>
+        <div style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
           <Cluster cluster={[...cluster]} />
         </div>
-        <div style={{ gridTemplateColumns: "minmax(350px, 1fr)" }}>
+        <div style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
           <Cluster cluster={[...cluster]} />
-        </div>
+        </div> */}
       </div>
-       
+
     </div>
   )
 }

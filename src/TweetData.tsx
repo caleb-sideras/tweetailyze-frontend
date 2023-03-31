@@ -7,7 +7,7 @@ import { TweetDataProps } from './interfaces';
 
 
 export default function TweetData(props: TweetDataProps) {
-    const { pos, neg, neu, top, com } = props
+    const { pos, neg, neu, topic_weight, compound } = props
     const [open, setOpen] = React.useState(false);
     return (
         <div className='-mt-4 w-full'>
@@ -30,11 +30,11 @@ export default function TweetData(props: TweetDataProps) {
                     <TweetCell open={open} num={neu} cell_v={'top_r'} borderStyling={['border-l-0']} title={'Neutral Sentiment'} description={'Scale from 0-1 of tweet neutrality'}/>
                     
                     <Collapsible.Content>
-                        <TweetCell open={open} num={com} cell_v={'bot_l'} borderStyling={['border-r-0', 'border-t-0']} title={'Compound'} description={'The overall sentiment of the tweet between -1 (most extreme negative) and +1 (most extreme positive).'}/>
+                        <TweetCell open={open} num={compound} cell_v={'bot_l'} borderStyling={['border-r-0', 'border-t-0']} title={'Compound'} description={'The overall sentiment of the tweet between -1 (most extreme negative) and +1 (most extreme positive).'}/>
                     </Collapsible.Content>
                     
                     <Collapsible.Content>
-                        <TweetCell open={open} num={top} cell_v={'bot_m'} borderStyling={['border-t-0']} title={'Topic'} description={'Relevance of the tweet to the given topic'}/>
+                        <TweetCell open={open} num={topic_weight} cell_v={'bot_m'} borderStyling={['border-t-0']} title={'Topic'} description={'Relevance of the tweet to the given topic'}/>
                     </Collapsible.Content>
 
                     <Collapsible.Content>

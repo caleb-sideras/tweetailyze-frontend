@@ -1,9 +1,9 @@
 import React from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import TweetData from './TweetData';
-import { TweetProps } from './interfaces';
+import { TweetCluster } from './interfaces';
 
-export default function Tweet({ tweetId, pos, neg, neu, top, com }: TweetProps) {
+export default function Tweet({ tweet_id, pos, neg, neu, topic_weight, compound }: TweetCluster) {
 
     const options = {
         width: 600, 
@@ -14,13 +14,12 @@ export default function Tweet({ tweetId, pos, neg, neu, top, com }: TweetProps) 
     return (
         <div className=' bg-m-grey rounded-2xl p-4 justify-center'>
             <div className='w-full m-auto flex flex-col '>
-                <TwitterTweetEmbed tweetId={tweetId} options={options}/>
+                <TwitterTweetEmbed tweetId={tweet_id} options={options}/>
                 <img src="/sline.svg" alt="Sline" className='m-auto mt-4' />
-                <TweetData pos={pos} neg={neg} neu={neu} top={top} com={com}/>
+                <TweetData pos={pos} neg={neg} neu={neu} topic_weight={topic_weight} compound={compound}/>
             </div>
 
         </div>
-
 
     )
 };

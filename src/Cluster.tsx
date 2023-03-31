@@ -5,7 +5,8 @@ import Sort from './Sort';
 import ToggleSort from './ToggleSort';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 
-export default function Cluster({ cluster }: ClusterProps) {
+export default function Cluster(cluster: ClusterProps) {
+  const {topic, key_words, tweets} = cluster
 
   const [sortProperty, setSortProperty] = useState<keyof TweetCluster>('neg');
   const [sortDirection, setSortDirection] = useState(SortDirection.Descending);
@@ -19,7 +20,6 @@ export default function Cluster({ cluster }: ClusterProps) {
   }, []);
 
   const handleToggle = () => {
-    console.log(sortDirection)
     setSortDirection(
       sortDirection === SortDirection.Ascending
         ? SortDirection.Descending
@@ -27,7 +27,7 @@ export default function Cluster({ cluster }: ClusterProps) {
     );
   }
 
-  const sortedCluster = [...cluster].sort((a, b) => {
+  const sortedCluster = [...tweets].sort((a, b) => {
     const aProp = a[sortProperty];
     const bProp = b[sortProperty];
     if (aProp === bProp) return 0;
@@ -39,11 +39,11 @@ export default function Cluster({ cluster }: ClusterProps) {
   });
 
   return (
-    <div className='max-w-xl overflow-hidden gap-4 flex flex-col '>
+    <div className=' max-w-xs overflow-hidden gap-4 flex flex-col '>
       <div className='rounded-xl bg-d-grey w-full p-4'>
-        <div className='text-xl text-t-white'>Memes</div>
-        <div className='text-lg text-t-grey'>
-          word, word, word, word, word
+        <div className='text-xl text-t-white'>{topic}</div>
+        <div className='text-lg text-t-grey overflow-hidden whitespace-nowrap text-ellipsis'>
+          {key_words.join(', ')}
         </div>
         <div className='flex flex-row mt-4 gap-4'>
           <Sort handleSort={handleSort} />
@@ -57,13 +57,13 @@ export default function Cluster({ cluster }: ClusterProps) {
           <div className="py-[15px] flex flex-col gap-4">
             {sortedCluster.map((tweet) => (
               <Tweet
-                key={tweet.tweetId}
-                tweetId={tweet.tweetId}
+                key={tweet.tweet_id}
+                tweet_id={tweet.tweet_id}
                 neg={tweet.neg}
                 neu={tweet.neu}
                 pos={tweet.pos}
-                com={tweet.com}
-                top={tweet.top}
+                compound={tweet.compound}
+                topic_weight={tweet.topic_weight}
               />
             ))}
           </div>
