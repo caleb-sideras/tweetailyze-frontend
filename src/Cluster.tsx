@@ -41,7 +41,7 @@ export default function Cluster(cluster: ClusterProps) {
   return (
     <div className=' max-w-xs overflow-hidden gap-4 flex flex-col '>
       <div className='rounded-xl bg-d-grey w-full p-4'>
-        <div className='text-xl text-t-white'>{topic}</div>
+        <div className='text-xl text-t-white overflow-hidden whitespace-nowrap text-ellipsis'>{topic}</div>
         <div className='text-lg text-t-grey overflow-hidden whitespace-nowrap text-ellipsis'>
           {key_words.join(', ')}
         </div>

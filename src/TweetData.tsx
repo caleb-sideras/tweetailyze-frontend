@@ -34,7 +34,7 @@ export default function TweetData(props: TweetDataProps) {
                     </Collapsible.Content>
                     
                     <Collapsible.Content>
-                        <TweetCell open={open} num={topic_weight} cell_v={'bot_m'} borderStyling={['border-t-0']} title={'Topic'} description={'Relevance of the tweet to the given topic'}/>
+                        <TweetCell open={open} num={parseFloat(topic_weight.toFixed(3))} cell_v={'bot_m'} borderStyling={['border-t-0']} title={'Topic'} description={'Relevance of the tweet to the given topic'}/>
                     </Collapsible.Content>
 
                     <Collapsible.Content>
