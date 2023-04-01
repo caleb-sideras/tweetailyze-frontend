@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      minWidth:{
+        '20' : '320px'
+      },
       colors: {
         ...mauve,
         ...violet,
@@ -24,7 +27,6 @@ export default {
         't-grey': '#8e918f',
         'b-blue': '#004a77',
         's-blue': '#a8c7fa'
-
       },
     },
   },

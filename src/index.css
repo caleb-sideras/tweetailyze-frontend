@@ -34,3 +34,21 @@ body {
 .nunito-text {
   font-family: 'Nunito-Medium', sans-serif;
 }
+
+.grid-item {
+  background-color: #ccc;
+  padding: 16px;
+  text-align: center;
+}
+
+.arrow-button {
+  padding: 8px 16px;
+}
+
+.arrow-button.left {
+  grid-column-start: 1;
+}
+
+.arrow-button.right {
+  grid-column-start: 4;
+}

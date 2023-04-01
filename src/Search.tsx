@@ -82,7 +82,7 @@ export default function Search(props: SearchProps) {
 
     return (
         <>
-            <div className="flex items-center bg-d-grey rounded-full w-full p-2 px-4">
+            <div className="flex max-w-20 items-center bg-d-grey rounded-full w-full p-2 px-4">
                 <input
                     type="text"
                     maxLength={25}
