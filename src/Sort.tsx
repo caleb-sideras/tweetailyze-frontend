@@ -10,7 +10,6 @@ interface SortProps {
 
 export default function Sort({handleSort }: SortProps) {
     const handleItemSelected = (selectedItem: Select.ItemValueType) => {
-        console.log('Selected item:', selectedItem);
         handleSort(selectedItem)
       }
 

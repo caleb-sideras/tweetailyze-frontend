@@ -3,6 +3,7 @@ import Cluster from './Cluster'
 import Profile from './Profile'
 import Search from './Search'
 import { ClusterProps, ProfileProps, TweetCluster } from './interfaces'
+import './index.css'
 
 type Props = {}
 
@@ -15,7 +16,7 @@ export default function App({ }: Props) {
     let values: any;
     try {
       values = JSON.parse(newData);
-      console.log(values)
+      // console.log(values)
     } catch (error) {
       console.error(error);
     }
@@ -24,8 +25,11 @@ export default function App({ }: Props) {
   };
 
   return (
-    <div className='w-full h-full justify-center items-center flex flex-col gap-4 px-4'>
+    <div className='w-full h-full justify-center items-center flex flex-col gap-4 px-4 pt-4'>
       <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-auto-fit'>
+        <div className='col-span-full text-s-blue text-center text-3xl nunito-text'>
+          tweetAilyze.
+        </div>
         <div className='col-span-full'>
           <Search data={data} onDataChange={handleDataChange} />
         </div>
@@ -37,15 +41,6 @@ export default function App({ }: Props) {
             <Cluster {...cluster} />
           </div>
         ))}
-        {/* <div style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
-          <Cluster cluster={[...cluster]} />
-        </div>
-        <div style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
-          <Cluster cluster={[...cluster]} />
-        </div>
-        <div style={{ gridTemplateColumns: "minmax(300px, 1fr)" }}>
-          <Cluster cluster={[...cluster]} />
-        </div> */}
       </div>
 
     </div>

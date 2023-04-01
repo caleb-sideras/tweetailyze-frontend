@@ -22,7 +22,8 @@ export default {
         't-white': '#e3e3e3',
         'h-blue': '#c2e7ff',
         't-grey': '#8e918f',
-        'b-blue': '#004a77'
+        'b-blue': '#004a77',
+        's-blue': '#a8c7fa'
 
       },
     },

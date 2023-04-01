@@ -61,8 +61,8 @@ export default function Search(props: SearchProps) {
                 if (error instanceof Response) {
                     if (error.status === 400) {
                         error.json().then((jsonError: any) => {
-                            console.log(jsonError);
-                            setError(jsonError)
+                            console.log(jsonError["Error"]);
+                            setError(jsonError["Error"])
                         });
                     }
                 }
@@ -125,7 +125,7 @@ export default function Search(props: SearchProps) {
                     )}
                 </button>
             </div>
-            <div className="text-orange-400 text-xl text-start mt-2">{error}</div>
+            <div className="text-h-blue text-sm text-center mt-2">{error}</div>
         </>
     )
 }
