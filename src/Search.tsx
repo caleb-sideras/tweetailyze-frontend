@@ -41,8 +41,8 @@ export default function Search(props: SearchProps) {
         };
 
         console.log(requestOptions)
-
-        fetch("http://127.0.0.1:8000/tweets", requestOptions)
+        // @ts-expect-error
+        fetch(process.env.T_BACKEND, requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw (response);
