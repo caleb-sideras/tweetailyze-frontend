@@ -28,7 +28,7 @@ export default function App({ }: Props) {
         const gridColumnTemplate = computedStyle.getPropertyValue("grid-template-columns");
         const numColumns = gridColumnTemplate.split(" ").length;
 
-        if (clustersActive) {
+        if (clustersActive && clusters) {
           if (numColumns < clustersActive.length) {
             if (indexR > 1) {
               setClustersActive(clusters.slice(indexL, indexR - 1))
@@ -67,14 +67,14 @@ export default function App({ }: Props) {
   };
 
   const handleRightButton = () => {
-    if (indexR + 1 <= clusters.length) {
+    if (clusters && indexR + 1 <= clusters.length) {
       setClustersActive(clusters.slice(indexL + 1, indexR + 1))
       setIndexL(indexL + 1)
       setIndexR(indexR + 1)
     }
   }
   const handleLeftButton = () => {
-    if (indexL - 1 >= 0) {
+    if (clusters && indexL - 1 >= 0) {
       setClustersActive(clusters.slice(indexL - 1, indexR - 1))
       setIndexL(indexL - 1)
       setIndexR(indexR - 1)

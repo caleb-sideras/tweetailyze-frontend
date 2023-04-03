@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef } from 'react';
 import * as Select from '@radix-ui/react-select';
 import classnames from 'classnames';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
@@ -6,21 +6,26 @@ import { TweetCluster } from './interfaces';
 
 interface SortProps {
     handleSort: (property: keyof TweetCluster) => void;
-  }
+}
+interface SelectItemProps {
+    children: React.ReactNode;
+    value: string;
+}
 
-export default function Sort({handleSort }: SortProps) {
+
+export default function Sort({ handleSort }: SortProps) {
+    // @ts-ignore
     const handleItemSelected = (selectedItem: Select.ItemValueType) => {
         handleSort(selectedItem)
-      }
+    }
 
-    const SelectItem = React.forwardRef(({ children, className, ...props }, forwardedRef) => {
+    const SelectItem = React.forwardRef((props: SelectItemProps, forwardedRef: ForwardedRef<HTMLLIElement>) => {
+        const { children, value } = props;
         return (
             <Select.Item
-                className={classnames(
-                    'text-[13px] leading-none text-t-white rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-l-blue data-[highlighted]:text-t-white',
-                    className
-                )}
+                className={'text-[13px] leading-none text-t-white rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-l-blue data-[highlighted]:text-t-white' }
                 {...props}
+                // @ts-ignore
                 ref={forwardedRef}
             >
                 <Select.ItemText>{children}</Select.ItemText>
