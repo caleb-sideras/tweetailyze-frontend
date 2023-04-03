@@ -42,12 +42,16 @@ export default function Search(props: SearchProps) {
 
         console.log(requestOptions)
         // @ts-expect-error
-        fetch(process.env.T_BACKEND, requestOptions)
+        fetch(process.env.VITE_T_BACKEND, requestOptions)
             .then((response) => {
                 if (!response.ok) {
+                    console.log(process.env.__APP_ENV__)
+                    console.log(process.env.VITE_T_BACKEND)
                     throw (response);
                 }
                 else {
+                    console.log(process.env.__APP_ENV__)
+                    console.log(process.env.VITE_T_BACKEND)
                     return response.json()
                 }
             })
@@ -57,6 +61,8 @@ export default function Search(props: SearchProps) {
                 onDataChange(JSON.stringify(data));
             })
             .catch((error) => {
+                console.log(process.env.__APP_ENV__)
+                console.log(process.env.VITE_T_BACKEND)
                 setLoading(false);
                 if (error instanceof Response) {
                     if (error.status === 400) {
