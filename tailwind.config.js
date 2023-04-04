@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const { mauve, violet,blackA } = require('@radix-ui/colors');
+const { violet } = require('@radix-ui/colors');
 export default {
   content: [
     "./index.html",
@@ -12,9 +12,7 @@ export default {
         '20' : '320px'
       },
       colors: {
-        ...mauve,
         ...violet,
-        ...blackA,
         'm-grey' : '#2d2f33',
         'l-grey' : '#353940',
         'd-grey' : '#1f1f1f',

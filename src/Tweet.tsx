@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 import TweetData from './TweetData';
 import { TweetCluster } from './interfaces';
+import { Tweet as ReactTweet } from 'react-twitter-widgets';
 
 export default function Tweet({ tweet_id, pos, neg, neu, topic_weight, compound }: TweetCluster) {
     const [loaded, setLoaded] = useState(false);
@@ -35,7 +35,7 @@ export default function Tweet({ tweet_id, pos, neg, neu, topic_weight, compound 
                         />
                     </svg>
                 )}
-                <TwitterTweetEmbed tweetId={tweet_id} onLoad={handleLoad} />
+                <ReactTweet tweetId={tweet_id} onLoad={handleLoad} />
                 <img src="/sline.svg" alt="Sline" className='m-auto mt-4' />
                 <TweetData pos={pos} neg={neg} neu={neu} topic_weight={topic_weight} compound={compound} />
             </div>

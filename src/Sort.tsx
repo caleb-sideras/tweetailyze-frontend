@@ -23,7 +23,7 @@ export default function Sort({ handleSort }: SortProps) {
         const { children, value } = props;
         return (
             <Select.Item
-                className={'text-[13px] leading-none text-t-white rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-l-blue data-[highlighted]:text-t-white' }
+                className={'text-[13px] leading-none text-t-white rounded-[3px] flex items-center h-[25px] pr-[35px] pl-[25px] relative select-none data-[disabled]:text-vl-grey data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-l-blue data-[highlighted]:text-t-white' }
                 {...props}
                 // @ts-ignore
                 ref={forwardedRef}
