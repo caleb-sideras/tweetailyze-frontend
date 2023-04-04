@@ -42,7 +42,7 @@ export default function Search(props: SearchProps) {
 
         console.log(requestOptions)
 
-        fetch("https://tweetailyze.eastus.azurecontainer.io/tweets", requestOptions)
+        fetch("http://localhost:8000/tweets", requestOptions)
             .then((response) => {
                 if (!response.ok) {
                     throw (response);

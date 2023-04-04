@@ -4,12 +4,6 @@ import TweetData from './TweetData';
 import { TweetCluster } from './interfaces';
 
 export default function Tweet({ tweet_id, pos, neg, neu, topic_weight, compound }: TweetCluster) {
-
-    const options = {
-        width: 600,
-        height: 600,
-        autoWidth: true
-    };
     const [loaded, setLoaded] = useState(false);
 
     function handleLoad() {
@@ -41,7 +35,7 @@ export default function Tweet({ tweet_id, pos, neg, neu, topic_weight, compound 
                         />
                     </svg>
                 )}
-                <TwitterTweetEmbed tweetId={tweet_id} options={options} onLoad={handleLoad} />
+                <TwitterTweetEmbed tweetId={tweet_id} onLoad={handleLoad} />
                 <img src="/sline.svg" alt="Sline" className='m-auto mt-4' />
                 <TweetData pos={pos} neg={neg} neu={neu} topic_weight={topic_weight} compound={compound} />
             </div>
