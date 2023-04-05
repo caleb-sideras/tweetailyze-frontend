@@ -1,5 +1,5 @@
 <h1>Tweetailyze</h1>
-<p>The front-end for PeoplePedia, a webapp that summarizes a Twitter account's tweets through embedding/clustering of tweets, w/ sentiment analysis and topic modeling.</p>
+<p>The front-end for Tweetailyze, a webapp that summarizes a Twitter account's tweets through embedding/clustering of tweets, w/ sentiment analysis and topic modeling.</p>
 
 <p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="dart"  height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="flutter" width="40" height="40"/> </a> </p>
 
