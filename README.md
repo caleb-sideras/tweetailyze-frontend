@@ -3,7 +3,6 @@
 
 <p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg" alt="dart"  height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="flutter" width="40" height="40"/> </a> </p>
 
-[Visit Tweetailyze](https://tweetailyze-frontend.vercel.app/)
 ![image](https://user-images.githubusercontent.com/66019710/230147921-8bdad341-b86b-44f8-a1e3-5ab388808f7c.png)
 
 
